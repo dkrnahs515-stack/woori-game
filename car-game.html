@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>🚜 자동차 종류 맞추기</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="home-btn" onclick="location.href='index.html'">🏠 홈으로</button>
+            <h1 class="game-title">🚜 자동차 종류 맞추기</h1>
+            <p class="game-instruction">건설기계와 특수차량을 배워봐요! 우리야 파이팅!</p>
+        </header>
+
+        <main class="game-area">
+            <div class="score-board">
+                <div class="score">점수: <span id="score">0</span></div>
+                <button class="restart-btn" onclick="restartGame()">🔄 다시하기</button>
+            </div>
+
+            <div class="car-display">
+                <div id="carImage" class="car-image">
+                    <div class="car-icon">🚜</div>
+                    <p class="car-hint">이 차는 무슨 일을 할까요?</p>
+                </div>
+            </div>
+
+            <div id="carOptions" class="car-options">
+                <!-- 자동차 옵션들이 여기에 생성됩니다 -->
+            </div>
+
+            <div id="feedback" class="feedback"></div>
+        </main>
+    </div>
+
+    <script src="js/car-game.js"></script>
+</body>
+</html>
