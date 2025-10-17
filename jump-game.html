@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>🚗 자동차 점프 게임</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 점프 게임 전용 스타일 */
+        .jump-game-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-canvas-wrapper {
+            position: relative;
+            background: linear-gradient(to bottom, #87CEEB 0%, #98D8E8 50%, #90EE90 50%, #7CCD7C 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        #gameCanvas {
+            display: block;
+            width: 100%;
+            height: 400px;
+            cursor: pointer;
+        }
+
+        .game-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .game-controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .control-btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+            color: white;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .pause-btn {
+            background: linear-gradient(135deg, #FFD93D 0%, #FFBA52 100%);
+            color: white;
+        }
+
+        .game-over-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 10;
+        }
+
+        .game-over-overlay.show {
+            display: block;
+            animation: popIn 0.3s ease-out;
+        }
+
+        @keyframes popIn {
+            from {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .game-over-title {
+            font-size: 2rem;
+            color: #FF6B6B;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .game-over-score {
+            font-size: 1.5rem;
+            color: #2d3436;
+            margin-bottom: 20px;
+        }
+
+        .instructions {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .instructions h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .instructions p {
+            color: #2d3436;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .instruction-icon {
+            font-size: 2rem;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 576px) {
+            #gameCanvas {
+                height: 300px;
+            }
+
+            .info-value {
+                font-size: 1.4rem;
+            }
+
+            .control-btn {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+
+            .game-over-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="home-btn" onclick="location.href='index.html'">🏠 홈으로</button>
+            <h1 class="game-title">🚗 자동차 점프 게임</h1>
+            <p class="game-instruction">우리야~ 화면을 터치해서 자동차를 점프시켜! 💙</p>
+        </header>
+
+        <main class="game-area">
+            <div class="jump-game-container">
+                <div class="game-info">
+                    <div class="info-item">
+                        <div class="info-label">점수</div>
+                        <div class="info-value" id="currentScore">0</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">최고 점수</div>
+                        <div class="info-value" id="highScore">0</div>
+                    </div>
+                </div>
+
+                <div class="game-canvas-wrapper">
+                    <canvas id="gameCanvas"></canvas>
+                    <div id="gameOverOverlay" class="game-over-overlay">
+                        <div class="game-over-title">🚗 게임 오버!</div>
+                        <div class="game-over-score">
+                            점수: <span id="finalScore">0</span>점<br>
+                            최고 점수: <span id="finalHighScore">0</span>점
+                        </div>
+                        <button class="control-btn start-btn" onclick="restartGame()">🔄 다시 하기</button>
+                    </div>
+                </div>
+
+                <div class="game-controls">
+                    <button class="control-btn start-btn" id="startBtn" onclick="startGame()">🎮 게임 시작</button>
+                    <button class="control-btn pause-btn" id="pauseBtn" onclick="togglePause()" style="display: none;">⏸️ 일시정지</button>
+                </div>
+
+                <div class="instructions">
+                    <h3>🎯 게임 방법</h3>
+                    <div class="instruction-icon">👆</div>
+                    <p>
+                        <strong>화면을 터치</strong>하면 자동차가 점프해요!<br>
+                        장애물 🪨을 피해서 최대한 멀리 가보세요!<br>
+                        시간이 지날수록 빨라져요! 우리야 파이팅! 💪
+                    </p>
+                </div>
+            </div>
+
+            <div id="feedback" class="feedback"></div>
+        </main>
+
+        <footer>
+            <p class="personal-message">💝 권우리를 위한 특별한 게임 💝</p>
+            <p class="creator">Made by 이건희</p>
+        </footer>
+    </div>
+
+    <script src="js/jump-game.js"></script>
+</body>
+</html>
