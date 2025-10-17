@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <title>🎮 우리의 게임나라 🎮</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="권우리를 위한 특별한 미니게임 모음">
+    <meta name="theme-color" content="#FF6B9D">
+    <title>🎮 우리의 게임나라</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -16,41 +15,49 @@
             <p class="subtitle">우리야~ 이 게임 재미있게 해봐! 💙</p>
         </header>
 
-        <main class="game-menu">
-            <div class="game-card" onclick="location.href='color-game.html'">
-                <div class="game-icon">🎨</div>
-                <h2>색깔 맞추기</h2>
-                <p>같은 색깔을 찾아봐요!</p>
-            </div>
+        <main>
+            <div class="game-grid">
+                <!-- 색깔 맞추기 게임 -->
+                <a href="color-game.html" class="game-card" style="background: linear-gradient(135deg, #FF6B9D 0%, #FFA07A 100%);">
+                    <div class="game-icon">🎨</div>
+                    <h2 class="game-title">색깔 맞추기</h2>
+                    <p class="game-description">알록달록 색깔을 찾아보자!</p>
+                </a>
 
-            <div class="game-card" onclick="location.href='animal-game.html'">
-                <div class="game-icon">🐶</div>
-                <h2>동물 소리 맞추기</h2>
-                <p>어떤 동물 소리일까요?</p>
-            </div>
+                <!-- 동물 소리 게임 -->
+                <a href="animal-game.html" class="game-card" style="background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);">
+                    <div class="game-icon">🐶</div>
+                    <h2 class="game-title">동물 소리</h2>
+                    <p class="game-description">동물들이 어떤 소리를 낼까?</p>
+                </a>
 
-            <div class="game-card" onclick="location.href='memory-game.html'">
-                <div class="game-icon">🃏</div>
-                <h2>메모리 카드 게임</h2>
-                <p>같은 그림을 찾아봐요!</p>
-            </div>
+                <!-- 카드 뒤집기 게임 -->
+                <a href="memory-game.html" class="game-card" style="background: linear-gradient(135deg, #A8E6CF 0%, #56AB91 100%);">
+                    <div class="game-icon">🃏</div>
+                    <h2 class="game-title">카드 뒤집기</h2>
+                    <p class="game-description">같은 그림을 찾아보자!</p>
+                </a>
 
-            <div class="game-card" onclick="location.href='vehicle-game.html'">
-                <div class="game-icon">🚗</div>
-                <h2>탱크 찾기 게임</h2>
-                <p>탱크와 군용차를 찾아봐요!</p>
-            </div>
+                <!-- 특수차량 게임 -->
+                <a href="vehicle-game.html" class="game-card" style="background: linear-gradient(135deg, #FFD93D 0%, #FFBA52 100%);">
+                    <div class="game-icon">🚜</div>
+                    <h2 class="game-title">특수차량</h2>
+                    <p class="game-description">지게차, 굴착기를 찾아보자!</p>
+                </a>
 
-            <div class="game-card" onclick="location.href='airplane-game.html'">
-                <div class="game-icon">✈️</div>
-                <h2>비행기 종류 맞추기</h2>
-                <p>어떤 비행기일까요?</p>
-            </div>
+                <!-- 비행기 게임 -->
+                <a href="airplane-game.html" class="game-card" style="background: linear-gradient(135deg, #6BCF7F 0%, #4CA1AF 100%);">
+                    <div class="game-icon">✈️</div>
+                    <h2 class="game-title">비행기 날리기</h2>
+                    <p class="game-description">높이 높이 날아보자!</p>
+                </a>
 
-            <div class="game-card" onclick="location.href='car-game.html'">
-                <div class="game-icon">🚜</div>
-                <h2>자동차 종류 맞추기</h2>
-                <p>건설기계와 특수차량을 배워봐요!</p>
+                <!-- 자동차 게임 -->
+                <a href="car-game.html" class="game-card" style="background: linear-gradient(135deg, #C779D0 0%, #4BC0C8 100%);">
+                    <div class="game-icon">🚗</div>
+                    <h2 class="game-title">자동차 드라이브</h2>
+                    <p class="game-description">부릉부릉 달려보자!</p>
+                </a>
             </div>
         </main>
 
