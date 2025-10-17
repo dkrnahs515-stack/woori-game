@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>🃏 메모리 카드 게임</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="home-btn" onclick="location.href='index.html'">🏠 홈으로</button>
+            <h1 class="game-title">🃏 메모리 카드 게임</h1>
+            <p class="game-instruction">같은 그림을 찾아보세요! 우리야 할 수 있어!</p>
+        </header>
+
+        <main class="game-area">
+            <div class="score-board">
+                <div class="score">
+                    <span>💯 짝 맞춘 개수: <span id="pairs">0</span></span>
+                    <span style="margin-left: 20px;">🔢 시도 횟수: <span id="moves">0</span></span>
+                </div>
+                <button class="restart-btn" onclick="restartGame()">🔄 다시하기</button>
+            </div>
+
+            <div class="difficulty-selector">
+                <button class="difficulty-btn active" onclick="setDifficulty('easy')">쉬움 (4쌍)</button>
+                <button class="difficulty-btn" onclick="setDifficulty('medium')">보통 (6쌍)</button>
+                <button class="difficulty-btn" onclick="setDifficulty('hard')">어려움 (8쌍)</button>
+            </div>
+
+            <div id="memoryCards" class="memory-cards">
+                <!-- 카드들이 여기에 생성됩니다 -->
+            </div>
+
+            <div id="feedback" class="feedback"></div>
+        </main>
+    </div>
+
+    <script src="js/memory-game.js"></script>
+</body>
+</html>
