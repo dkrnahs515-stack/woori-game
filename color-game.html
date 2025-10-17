@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#FF6B9D">
+    <title>🎨 색깔 맞추기 게임</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-container">
+            <a href="index.html" class="back-button">← 돌아가기</a>
+            
+            <div class="game-header">
+                <h1>🎨 색깔 맞추기</h1>
+                <p>우리야~ 같은 색깔을 찾아봐! 💙</p>
+            </div>
+
+            <div class="score-board">
+                <p>점수: <span id="score">0</span>점</p>
+            </div>
+
+            <div class="color-game-area">
+                <div class="question">
+                    <h2>이 색깔과 같은 색을 찾아봐!</h2>
+                    <div id="targetColor" class="target-color"></div>
+                </div>
+
+                <div id="feedback" class="feedback"></div>
+
+                <div id="colorOptions" class="color-options">
+                    <!-- 색깔 옵션들이 JavaScript로 생성됩니다 -->
+                </div>
+            </div>
+
+            <div class="text-center mt-20">
+                <button class="btn btn-primary" onclick="location.reload()">🔄 다시 시작</button>
+            </div>
+        </div>
+
+        <footer>
+            <p class="personal-message">💝 권우리를 위한 특별한 게임 💝</p>
+            <p class="creator">Made by 이건희</p>
+        </footer>
+    </div>
+
+    <!-- 결과 모달 -->
+    <div id="resultModal" class="result-modal">
+        <div class="result-content">
+            <div id="resultEmoji" class="result-emoji"></div>
+            <h2 id="resultTitle"></h2>
+            <p id="resultMessage"></p>
+            <button class="btn btn-success" onclick="nextRound()">다음 문제! 🎯</button>
+        </div>
+    </div>
+
+    <script src="js/color-game.js"></script>
+</body>
+</html>
