@@ -1,0 +1,891 @@
+/* ========================================
+   권우리 게임나라 - 통합 스타일시트
+   Made by 이건희
+   ======================================== */
+
+/* ===================
+   기본 스타일 및 리셋
+   =================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* 메인 컬러 팔레트 */
+    --primary-color: #FF6B9D;
+    --secondary-color: #4ECDC4;
+    --success-color: #A8E6CF;
+    --warning-color: #FFD93D;
+    --danger-color: #FF6B6B;
+    
+    /* 배경 그라디언트 */
+    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    
+    /* 텍스트 컬러 */
+    --text-dark: #2d3436;
+    --text-light: #ffffff;
+    
+    /* 그림자 */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+    
+    /* 애니메이션 */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', '맑은 고딕', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* 모바일 터치 최적화 */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ===================
+   컨테이너 및 레이아웃
+   =================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===================
+   헤더 스타일
+   =================== */
+header {
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+.main-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-light);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    animation: bounce 1s ease-in-out;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-in;
+}
+
+/* ===================
+   메인 콘텐츠
+   =================== */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ===================
+   게임 그리드 (메인 페이지)
+   =================== */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+
+.game-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.game-card:active {
+    transform: translateY(-5px) scale(0.98);
+}
+
+.game-icon {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    animation: wiggle 2s ease-in-out infinite;
+}
+
+.game-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.game-description {
+    font-size: 1rem;
+    opacity: 0.95;
+    font-weight: 500;
+}
+
+/* ===================
+   푸터
+   =================== */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+.personal-message {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 8px;
+}
+
+.creator {
+    font-size: 1rem;
+    color: var(--text-light);
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
+}
+
+/* ===================
+   게임 페이지 공통 스타일
+   =================== */
+.game-container {
+    background: white;
+    border-radius: 20px;
+    padding: 30px 20px;
+    box-shadow: var(--shadow-lg);
+    flex: 1;
+}
+
+.game-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.game-header h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.game-header p {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.back-button:hover {
+    background: #3ab8af;
+    transform: translateX(-5px);
+}
+
+/* ===================
+   점수판
+   =================== */
+.score-board {
+    text-align: center;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-md);
+}
+
+/* ===================
+   색깔 맞추기 게임 스타일
+   =================== */
+.color-game-area {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.question {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.question h2 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.target-color {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+}
+
+.color-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.color-option {
+    padding: 30px 20px;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.color-option:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.color-option:active {
+    transform: scale(0.95);
+}
+
+.color-emoji {
+    font-size: 3rem;
+}
+
+.color-name {
+    font-size: 1.3rem;
+}
+
+/* ===================
+   피드백 메시지
+   =================== */
+.feedback {
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 20px 0;
+    transition: var(--transition);
+}
+
+.feedback.correct {
+    background: #A8E6CF;
+    color: #2d6a4f;
+    animation: bounce 0.5s ease-in-out;
+}
+
+.feedback.incorrect {
+    background: #FFD3D3;
+    color: #c9184a;
+    animation: shake 0.5s ease-in-out;
+}
+
+/* ===================
+   버튼 스타일
+   =================== */
+.btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+    color: white;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+/* ===================
+   동물 게임 스타일
+   =================== */
+.game-title {
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.game-instruction {
+    font-size: 1.1rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.home-btn {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-bottom: 10px;
+}
+
+.home-btn:hover {
+    background: white;
+    color: #667eea;
+}
+
+.game-area {
+    background: white;
+    border-radius: 20px;
+    padding: 30px 20px;
+    box-shadow: var(--shadow-lg);
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.score {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.restart-btn {
+    padding: 10px 20px;
+    background: white;
+    color: #667eea;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.restart-btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+/* ===================
+   동물 디스플레이
+   =================== */
+.animal-display {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.sound-button {
+    display: inline-block;
+    padding: 30px;
+    background: linear-gradient(135deg, #FF6B9D 0%, #FFA07A 100%);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 20px;
+}
+
+.sound-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.sound-button:active {
+    transform: scale(0.95);
+}
+
+.sound-icon {
+    font-size: 4rem;
+    color: white;
+}
+
+.sound-button p {
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.question {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    font-weight: 700;
+    margin: 20px 0;
+}
+
+/* ===================
+   동물 옵션
+   =================== */
+.animal-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.animal-option {
+    padding: 25px 15px;
+    background: linear-gradient(135deg, #A8E6CF 0%, #56AB91 100%);
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+}
+
+.animal-option:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.animal-option:active {
+    transform: scale(0.95);
+}
+
+.animal-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.animal-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ===================
+   메모리 카드 게임 스타일
+   =================== */
+.difficulty-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.difficulty-btn {
+    padding: 12px 20px;
+    background: #e0e0e0;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--text-dark);
+}
+
+.difficulty-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.difficulty-btn:hover {
+    transform: translateY(-2px);
+}
+
+.memory-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.memory-card {
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 15px;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.memory-card.flipped {
+    background: white;
+    border: 3px solid #667eea;
+}
+
+.memory-card.matched {
+    background: #A8E6CF;
+    border: 3px solid #56AB91;
+    cursor: default;
+    opacity: 0.7;
+}
+
+.memory-card:not(.flipped):not(.matched):hover {
+    transform: scale(1.05);
+}
+
+.memory-card:not(.flipped):not(.matched):active {
+    transform: scale(0.95);
+}
+
+.card-back {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.card-front {
+    font-size: 3rem;
+}
+
+/* ===================
+   특수차량/비행기/자동차 게임 스타일
+   =================== */
+.vehicle-display,
+.airplane-display,
+.car-display {
+    text-align: center;
+    margin: 30px 0;
+    padding: 30px;
+    background: linear-gradient(135deg, #FFD93D 0%, #FFBA52 100%);
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+}
+
+.question-vehicle,
+.airplane-image,
+.car-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vehicle-icon,
+.airplane-icon,
+.car-icon {
+    font-size: 5rem;
+    margin-bottom: 15px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.vehicle-question,
+.airplane-hint,
+.car-hint {
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.vehicle-options,
+.airplane-options,
+.car-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.vehicle-option,
+.airplane-option,
+.car-option {
+    padding: 25px 15px;
+    background: white;
+    border: 3px solid #e0e0e0;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.vehicle-option:hover,
+.airplane-option:hover,
+.car-option:hover {
+    border-color: #667eea;
+    transform: scale(1.03);
+    box-shadow: var(--shadow-md);
+}
+
+.vehicle-option:active,
+.airplane-option:active,
+.car-option:active {
+    transform: scale(0.97);
+}
+
+.option-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.option-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+/* ===================
+   애니메이션
+   =================== */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-5deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* ===================
+   반응형 디자인
+   =================== */
+
+/* 스마트폰 (작은 화면) */
+@media (max-width: 576px) {
+    .main-title {
+        font-size: 1.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .game-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .game-icon {
+        font-size: 3rem;
+    }
+    
+    .game-title {
+        font-size: 1.3rem;
+    }
+    
+    .color-options,
+    .animal-options,
+    .vehicle-options,
+    .airplane-options,
+    .car-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .memory-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .score-board {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* 태블릿 */
+@media (min-width: 577px) and (max-width: 768px) {
+    .game-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .memory-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 데스크톱 (큰 화면) */
+@media (min-width: 992px) {
+    .game-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    
+    .game-card {
+        min-height: 250px;
+    }
+    
+    .color-options,
+    .animal-options,
+    .vehicle-options,
+    .airplane-options,
+    .car-options {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* 가로 모드 최적화 */
+@media (max-height: 600px) and (orientation: landscape) {
+    .container {
+        padding: 10px;
+    }
+    
+    header {
+        padding: 10px 0;
+        margin-bottom: 10px;
+    }
+    
+    .game-card {
+        min-height: 150px;
+        padding: 20px 15px;
+    }
+    
+    .game-icon {
+        font-size: 2.5rem;
+    }
+}
+
+/* 터치 디바이스 최적화 */
+@media (hover: none) and (pointer: coarse) {
+    .game-card:hover {
+        transform: none;
+    }
+    
+    .game-card:active {
+        transform: scale(0.95);
+    }
+    
+    .color-option:hover,
+    .animal-option:hover,
+    .vehicle-option:hover,
+    .airplane-option:hover,
+    .car-option:hover {
+        transform: none;
+    }
+    
+    .color-option:active,
+    .animal-option:active,
+    .vehicle-option:active,
+    .airplane-option:active,
+    .car-option:active {
+        transform: scale(0.95);
+    }
+}
