@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>🐶 동물 소리 맞추기 게임</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="home-btn" onclick="location.href='index.html'">🏠 홈으로</button>
+            <h1 class="game-title">🐶 동물 소리 맞추기 게임</h1>
+            <p class="game-instruction">동물 소리를 듣고 맞춰보세요! 우리야 파이팅!</p>
+        </header>
+
+        <main class="game-area">
+            <div class="score-board">
+                <div class="score">점수: <span id="score">0</span></div>
+                <button class="restart-btn" onclick="restartGame()">🔄 다시하기</button>
+            </div>
+
+            <div class="animal-display">
+                <div class="sound-button" id="soundButton" onclick="playSound()">
+                    <div class="sound-icon">🔊</div>
+                    <p>소리 듣기</p>
+                </div>
+                <p class="question" id="soundText">어떤 동물 소리일까요?</p>
+            </div>
+
+            <div id="animalOptions" class="animal-options">
+                <!-- 동물 옵션들이 여기에 생성됩니다 -->
+            </div>
+
+            <div id="feedback" class="feedback"></div>
+        </main>
+    </div>
+
+    <script src="js/animal-game.js"></script>
+</body>
+</html>
